@@ -1,0 +1,78 @@
+@use '../utils/' as u;
+
+$paddingY: 40;
+$paddingX: 28;
+$paddingDesktopX: 92;
+$paddingDesktopFullX: 400;
+$paddingDesktopXPercent: 7%;
+$paddingDesktopFullXPercent: 24%;
+
+.container {
+    max-width: u.rem(1110);
+    margin: 0 auto;
+
+    &--pall {
+        padding-top: u.rem($paddingY);
+        padding-right: u.rem($paddingX);
+        padding-bottom: u.rem($paddingY);
+        padding-left: u.rem($paddingX);
+
+        @include u.breakpoint-up(large) {
+            padding-right: $paddingDesktopXPercent;
+            padding-left: $paddingDesktopXPercent;
+        }
+
+        @include u.breakpoint-up(xlarge) {
+            padding-right: $paddingDesktopFullXPercent;
+            padding-left: $paddingDesktopFullXPercent;
+        }
+    }
+
+    &--py {
+        padding-top: u.rem($paddingY);
+        padding-bottom: u.rem($paddingY);
+    }
+
+    &--px {
+        padding-right: u.rem($paddingX);
+        padding-left: u.rem($paddingX);
+
+        @include u.breakpoint-up(large) {
+            padding-right: $paddingDesktopXPercent;
+            padding-left: $paddingDesktopXPercent;
+        }
+
+        @include u.breakpoint-up(xlarge) {
+            padding-right: $paddingDesktopFullXPercent;
+            padding-left: $paddingDesktopFullXPercent;
+        }
+    }
+
+    &--pt {
+        padding-top: u.rem($paddingY);
+    }
+
+    &--pr {
+        padding-right: u.rem($paddingX);
+
+        @include u.breakpoint-up(large) {
+            padding-right: $paddingDesktopXPercent;
+        }
+    }
+
+    &--pb {
+        padding-bottom: u.rem($paddingY);
+    }
+
+    &--pl {
+        padding-left: u.rem($paddingX);
+
+        @include u.breakpoint-up(large) {
+            padding-left: $paddingDesktopXPercent;
+        }
+
+        @include u.breakpoint-up(xlarge) {
+            padding-left: $paddingDesktopFullXPercent;
+        }
+    }
+}

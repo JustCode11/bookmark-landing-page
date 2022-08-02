@@ -1,0 +1,120 @@
+@use '../utils/' as u;
+@use '../globals/' as v;
+
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: u.rem(28);
+    margin-bottom: u.rem(80);
+
+    @include u.breakpoint-up(large) {
+        flex-direction: row;
+        justify-content: space-between;
+        height: u.rem(300);
+        padding-right: 5%;
+        margin-bottom: u.rem(192);
+    }
+
+    @include u.breakpoint-up(xlarge) {
+        padding-right: 18%;
+    }
+
+    &__image_container {
+        text-align: center;
+        position: relative;
+        z-index: -1;
+
+        @include u.breakpoint-down(medium) {
+            margin-bottom: u.rem(50);
+        }
+
+        @include u.breakpoint-up(large) {
+            order: 2;
+        }
+
+        .image {
+            position: relative;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: u.rem(260);
+            width: u.rem(360);
+
+            @include u.breakpoint-up(large) {
+                background-size: cover;
+                top: u.rem(61);
+                height: u.rem(400);
+                width: u.rem(500);
+            }
+
+            .imageLayer {
+                position: absolute;
+                z-index: -1;
+                border-radius: 0 0 0 u.rem(85);
+                background-color: v.$softBlue;
+                min-height: u.rem(200);
+                width: inherit;
+                top: 24%;
+                left: 24%;
+
+                @include u.breakpoint-up(large) {
+                    top: u.rem(125);
+                    left: 28%;
+                    min-height: u.rem(300);
+                    border-radius: 0 0 0 u.rem(150);
+                }
+            }
+        }
+    }
+
+    &__text {
+        text-align: center;
+
+        @include u.breakpoint-up(large) {
+            order: 1;
+            text-align: left;
+            width: u.rem(480);
+        }
+
+        h1 {
+            color: v.$veryDarkBlue;
+            font-weight: 500;
+            margin-bottom: u.rem(20);
+
+            @include u.breakpoint-up(large) {
+                font-size: u.rem(38);
+            }
+        }
+    }
+
+    &__buttons {
+        margin-top: u.rem(35);
+
+        @include u.breakpoint-down(small) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        button {
+
+            &:first-child {
+
+                @include u.breakpoint-up(medium) {
+                    margin-right: u.rem(11);
+                }
+            }
+
+            &:last-child {
+                background-color: rgb(243, 243, 243);
+                color: v.$veryDarkBlue;
+
+                &:hover {
+                    background-color: v.$white;
+                    border: 1px solid v.$veryDarkBlue;
+                }
+            }
+        }
+    }
+}

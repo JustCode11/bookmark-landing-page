@@ -1,0 +1,63 @@
+.has-fade-and-dissapear {
+    visibility: hidden;
+}
+
+@keyframes fade-in-and-dissapear {
+    from {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.fade-in-and-dissapear {
+    animation: fade-in-and-dissapear 200ms ease-in-out forwards;
+}
+
+@keyframes fade-out-and-dissapear {
+    from {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.fade-out-and-dissapear {
+    animation: fade-out-and-dissapear 200ms ease-in-out forwards;
+}
+
+@keyframes fade-in {
+    from {
+        background-color: white;
+    }
+
+    to {
+        background-color: rgba(37, 43, 70, 0.94);
+    }
+}
+
+.fade-in {
+    animation: fade-in 100ms ease-in-out forwards;
+}
+
+@keyframes fade-out {
+    from {
+        background-color: rgba(37, 43, 70, 0.94);
+    }
+
+    to {
+        background-color: white;
+    }
+}
+
+.fade-out {
+    animation: fade-out 100ms ease-in-out forwards;
+}

@@ -1,0 +1,81 @@
+@use '../utils/' as u;
+@use '../globals/' as v;
+
+.footer {
+    background-color: v.$veryDarkBlue;
+    color: v.$white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include u.breakpoint-up(large) {
+        flex-direction: row;
+        padding-top: u.rem(25);
+        padding-bottom: u.rem(25);
+    }
+
+    img {
+        width: u.rem(148);
+        height: u.rem(25);
+
+        @include u.breakpoint-up(large) {
+            margin-right: u.rem(45);
+        }
+
+        @include u.breakpoint-down(medium) {
+            margin-bottom: u.rem(20);
+        }
+    }
+
+    a {
+        text-transform: uppercase;
+        letter-spacing: u.rem(4);
+        font-size: u.rem(13);
+        transition: color 100ms ease-in-out;
+
+        &:hover {
+            color: v.$softRed;
+        }
+
+        @include u.breakpoint-down(medium) {
+            margin-top: u.rem(17);
+            margin-bottom: u.rem(17);
+        }
+
+        @include u.breakpoint-up(large) {
+            font-size: u.rem(12);
+
+            &:not(:last-child) {
+                margin-right: u.rem(35);
+            }
+        }
+    }
+
+    &__icons {
+        width: u.rem(90);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include u.breakpoint-down(medium) {
+            margin-top: u.rem(15);
+        }
+
+        @include u.breakpoint-up(large) {
+            margin-left: auto;
+        }
+
+        a {
+
+            svg path {
+                transition: fill 100ms ease-in-out;
+            }
+
+            &:hover {
+                svg path {
+                    fill: v.$softRed;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,109 @@
+@use '../utils/' as u;
+@use '../globals/' as v;
+
+.extension {
+    text-align: center;
+    margin-bottom: u.rem(80);
+
+    &__top {
+        margin-bottom: u.rem(20);
+
+        @include u.breakpoint-up(large) {
+            padding-left: 18%;
+            padding-right: 18%;
+            margin-bottom: u.rem(70);
+        }
+
+        h3 {
+            color: v.$veryDarkBlue;
+            font-size: u.rem(22);
+            font-weight: 500;
+            margin-bottom: u.rem(20);
+        }
+    }
+
+    &__cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include u.breakpoint-up(large) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .card {
+            position: relative;
+            border-radius: 15px;
+            -webkit-box-shadow: 0px 11px 20px -4px rgba(4, 53, 100, 0.2);
+            box-shadow: 0px 11px 20px -4px rgba(4, 53, 100, 0.2);
+
+            @include u.breakpoint-down(small) {
+
+                &:not(:last-child) {
+                    margin-bottom: u.rem(60);
+                }
+            }
+
+            @include u.breakpoint-down(medium) {
+                width: u.rem(319);
+            }
+
+            @include u.breakpoint-up(large) {
+                padding: u.rem(20) u.rem(25) u.rem(40) u.rem(25);
+
+                &:first-child {
+                    bottom: u.rem(50);
+                }
+
+                &:last-child {
+                    top: u.rem(50);
+                }
+            }
+
+            .image {
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center center;
+                width: 100%;
+                height: u.rem(100);
+                margin-bottom: u.rem(20);
+            }
+
+            .text {
+                margin-bottom: u.rem(20);
+
+                p:first-child {
+                    color: v.$veryDarkBlue;
+                    margin-bottom: u.rem(5);
+                    font-weight: 500;
+                    font-size: u.rem(20);
+                }
+
+                p:last-child {
+                    font-size: u.rem(14);
+                }
+            }
+
+            .lines {
+                width: 100%;
+                height: u.rem(3);
+                margin-bottom: u.rem(35);
+
+                @include u.breakpoint-up(large) {
+                    margin-left: u.rem(-25);
+                    margin-right: u.rem(-25);
+                    width: u.rem(253);
+                }
+            }
+
+            button {
+                padding: u.rem(13) u.rem(30);
+
+                &:hover {
+                    padding: u.rem(12) u.rem(29);
+                }
+            }
+        }
+    }
+}

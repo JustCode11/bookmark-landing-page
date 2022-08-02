@@ -1,0 +1,127 @@
+@use '../utils/' as u;
+@use '../globals/' as v;
+
+.contact {
+    background-color: v.$softBlue;
+    color: v.$white;
+    padding-top: u.rem(80);
+    padding-bottom: u.rem(80);
+
+    @include u.breakpoint-up(large) {
+        padding-left: 18%;
+        padding-right: 18%;
+    }
+
+    @include u.breakpoint-up(xlarge) {
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+
+    &__top {
+        text-align: center;
+        margin-bottom: u.rem(30);
+
+        p {
+            text-transform: uppercase;
+            font-size: u.rem(12);
+            letter-spacing: u.rem(5);
+            margin-bottom: u.rem(5);
+        }
+
+        h3 {
+            font-weight: 500;
+            font-size: u.rem(24);
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+
+        @include u.breakpoint-up(large) {
+            flex-direction: row;
+        }
+
+        &__input_container {
+            position: relative;
+
+            @include u.breakpoint-down(medium) {
+                margin-bottom: u.rem(15);
+            }
+
+            @include u.breakpoint-up(large) {
+                width: 100%;
+                margin-right: 20px;
+            }
+        }
+
+        .input_field {
+            position: relative;
+            padding: u.rem(13) u.rem(15);
+            border-radius: u.rem(5);
+            border: none;
+            font-family: "Rubik", sans-serif;
+            font-size: u.rem(15);
+            width: 100%;
+
+            &::placeholder {
+                color: #ccc;
+            }
+
+            &.error {
+                border: 2px solid v.$softRed;
+                background-image: url('../../images/icon-error.svg');
+                background-position: 97% 50%;
+                background-repeat: no-repeat;
+                z-index: 1;
+                margin-bottom: u.rem(30);
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        .errorMessage {
+            color: transparent;
+            background-color: v.$softRed;
+            border-bottom-left-radius: u.rem(5);
+            border-bottom-right-radius: u.rem(5);
+            font-size: u.rem(12);
+            font-style: italic;
+            padding: 0;
+            position: absolute;
+            width: 100%;
+            top: u.rem(45);
+            line-height: 0;
+            visibility: hidden;
+            overflow: hidden;
+            transition: all 300ms ease-in-out;
+
+            &.show {
+                visibility: visible;
+                line-height: normal;
+                padding: u.rem(7) u.rem(15);
+                color: v.$white;
+            }
+        }
+    }
+
+    button {
+        color: v.$white;
+        background-color: v.$softRed;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+
+        &:hover {
+            background-color: v.$white;
+            color: v.$softRed;
+            border: 1px solid v.$softRed;
+        }
+
+        @include u.breakpoint-up(large) {
+            width: u.rem(130);
+            height: u.rem(44);
+        }
+    }
+}

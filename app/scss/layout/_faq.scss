@@ -1,0 +1,107 @@
+@use '../utils/' as u;
+@use '../globals/' as v;
+
+.faq {
+    margin-bottom: u.rem(80);
+
+    @include u.breakpoint-up(large) {
+        padding-left: 18%;
+        padding-right: 18%;
+    }
+
+    @include u.breakpoint-up(xlarge) {
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+
+    &__top {
+        text-align: center;
+        margin-bottom: u.rem(60);
+
+        @include u.breakpoint-up(large) {
+            margin-bottom: u.rem(70);
+        }
+
+        h3 {
+            color: v.$veryDarkBlue;
+            font-size: u.rem(22);
+            font-weight: 500;
+            margin-bottom: u.rem(20);
+        }
+    }
+
+    &__tabs {
+        margin-bottom: u.rem(60);
+
+        &__tab {
+            .question {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: u.rem(20) 0;
+                cursor: pointer;
+                border-bottom: 1px solid rgba(145, 148, 161, 0.5);
+
+                &:hover {
+                    p {
+                        color: v.$softRed;
+                    }
+                }
+
+                &.open {
+                    border-bottom: none;
+
+                    .icon {
+                        svg {
+                            transform: rotate(180deg);
+                        }
+
+                        svg path {
+                            stroke: red;
+                        }
+                    }
+                }
+
+                p {
+                    color: v.$veryDarkBlue;
+                    font-weight: 500;
+                    font-size: u.rem(15);
+                }
+
+                .icon {
+                    display: inline-block;
+                    height: u.rem(20);
+                    width: u.rem(20);
+
+                    svg {
+                        transition: transform 300ms ease-in-out;
+                    }
+
+                    svg path {
+                        transition: fill 300ms ease-in-out;
+                    }
+                }
+            }
+
+            .answer {
+                overflow: hidden;
+                line-height: 0;
+                color: transparent;
+                padding: 0;
+                transition: all 300ms ease-in-out;
+
+                &.open {
+                    line-height: normal;
+                    color: v.$grayishBlue;
+                    padding-top: u.rem(2);
+                    padding-bottom: u.rem(2);
+                }
+            }
+        }
+    }
+
+    &__button {
+        text-align: center;
+    }
+
+}

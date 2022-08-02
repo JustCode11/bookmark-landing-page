@@ -1,0 +1,180 @@
+@use '../utils/' as u;
+@use '../globals/' as v;
+
+.feature {
+    margin-bottom: u.rem(80);
+
+    .show {
+        visibility: visible;
+    }
+
+    &__top {
+        @include u.breakpoint-up(large) {
+            padding-left: 18%;
+            padding-right: 18%;
+        }
+    }
+
+    &__text {
+        text-align: center;
+        margin-bottom: u.rem(40);
+
+        h2 {
+            color: v.$veryDarkBlue;
+            font-weight: 500;
+            margin-bottom: u.rem(20);
+        }
+    }
+
+    &__selection {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: u.rem(70);
+
+        @include u.breakpoint-up(large) {
+            flex-direction: row;
+            border-bottom: 1px solid rgba(145, 148, 161, 0.5);
+        }
+
+        a {
+            position: relative;
+            font-size: u.rem(16);
+            padding: u.rem(17) 0;
+            cursor: pointer;
+
+            @include u.breakpoint-up(large) {
+                width: 33%;
+                font-size: u.rem(13);
+                padding: u.rem(23) 0;
+            }
+
+            &:hover {
+                color: v.$softRed;
+            }
+
+            &:first-child,
+            &:last-child {
+                @include u.breakpoint-down(small) {
+                    border-top: 1px solid rgba(145, 148, 161, 0.5);
+                    border-bottom: 1px solid rgba(145, 148, 161, 0.5);
+                }
+            }
+
+            &.selected {
+                color: v.$veryDarkBlue;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    height: u.rem(4);
+                    width: u.rem(150);
+                    left: calc(50% - u.rem(75));
+                    background-color: #fa5757;
+                    bottom: 0;
+
+                    @include u.breakpoint-up(large) {
+                        width: 100%;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &__items {
+        position: relative;
+        height: u.rem(450);
+
+        .searching-item,
+        .sharing-item {
+
+            .image {
+                @include u.breakpoint-up(large) {
+                    background-position: 70%;
+                }
+
+                .imageLayer {
+                    @include u.breakpoint-up(large) {
+                        right: 30%;
+                        height: u.rem(250);
+                    }
+                }
+            }
+        }
+
+        &__item {
+            visibility: hidden;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+
+            @include u.breakpoint-up(large) {
+                flex-direction: row;
+                align-items: center
+            }
+
+            &__image {
+                margin-bottom: u.rem(70);
+
+                .image {
+                    position: relative;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    width: 100%;
+                    height: u.rem(210);
+
+                    @include u.breakpoint-up(large) {
+                        width: u.rem(540);
+                        height: u.rem(300);
+                        background-position: left center;
+                    }
+
+                    .imageLayer {
+                        position: absolute;
+                        z-index: -1;
+                        border-radius: 0 0 u.rem(85) 0;
+                        background-color: v.$softBlue;
+                        min-height: u.rem(207);
+                        width: inherit;
+                        top: 18%;
+                        right: 15%;
+
+                        @include u.breakpoint-up(large) {
+                            border-radius: 0 0 u.rem(110) 0;
+                            top: 23%;
+                            right: 27%;
+                            height: u.rem(290);
+                        }
+                    }
+                }
+            }
+
+            &__text {
+                text-align: center;
+
+                @include u.breakpoint-up(large) {
+                    text-align: left;
+                }
+
+                h3 {
+                    color: v.$veryDarkBlue;
+                    font-weight: 500;
+                    font-size: u.rem(22);
+                    margin-bottom: u.rem(20);
+
+                    @include u.breakpoint-up(large) {
+                        font-size: u.rem(30);
+                    }
+                }
+
+                p {
+                    @include u.breakpoint-up(large) {
+                        margin-bottom: u.rem(40);
+                    }
+                }
+            }
+        }
+    }
+}
